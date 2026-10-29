@@ -7,6 +7,7 @@
     <link rel="shortcut icon" href="TemplateData/favicon.ico">
     <link rel="stylesheet" href="TemplateData/style.css">
     <link rel="manifest" href="manifest.webmanifest">
+  <script src="TemplateData/profiler.js"></script>
   </head>
   <body>
     <div id="unity-container">
@@ -61,12 +62,12 @@
       }
 
       var buildUrl = "Build";
-      var loaderUrl = buildUrl + "/d81a37b1f3155700547577a40bf20e4a.loader.js";
+      var loaderUrl = buildUrl + "/f803f4c08bcbc09d5fea94b3f856de49.loader.js";
       var config = {
         arguments: [],
-        dataUrl: buildUrl + "/bde6f0b6e1b4d2bbd2f05e775ab253ce.data",
-        frameworkUrl: buildUrl + "/946e15e8685aa1a859c1255c3d8c0991.framework.js",
-        codeUrl: buildUrl + "/b11b24ed780dec41cabadd397620bff7.wasm",
+        dataUrl: buildUrl + "/9c0872ff726bab8cef384c1eae55c5af.data",
+        frameworkUrl: buildUrl + "/e9dba2ecac1a44f2eeb12c30faf27379.framework.js",
+        codeUrl: buildUrl + "/b6904a5ea03c10f334205756d271cbd9.wasm",
         streamingAssetsUrl: "StreamingAssets",
 
         // If you have a custom web site structure, or want to place multiple Unity build instances on the same page,
@@ -114,6 +115,11 @@
             loadingContainer.style.display = "none";
           }
         }).then((unityInstance) => {
+          var profile = unityProfiler.createButton(unityInstance);
+          profile.style.position = 'fixed';
+          profile.style.bottom = '5px';
+          profile.style.left = '5px';
+          document.body.appendChild(profile);
         }).catch((message) => {
           alert(message);
         });
